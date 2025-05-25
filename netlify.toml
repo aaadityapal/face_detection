@@ -1,5 +1,6 @@
 [build]
-  publish = "."
+  publish = "web"
+  command = "echo 'Skipping build step - static deployment only'"
   
 [[headers]]
   for = "/*"
@@ -7,4 +8,8 @@
     Access-Control-Allow-Origin = "*"
     
 [dev]
-  framework = "#static" 
+  framework = "#static"
+
+# Explicitly disable Python
+[build.environment]
+  NETLIFY_USE_PYTHON = "false" 

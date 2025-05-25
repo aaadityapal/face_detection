@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection Web App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .video-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        #video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        .results-panel {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .results-item {
+            margin-bottom: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .settings-panel {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Face Detection Web App</h1>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="video-container">
+                    <video id="video" autoplay muted></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+                
+                <div class="controls d-flex justify-content-center">
+                    <button id="startButton" class="btn btn-primary me-2">Start Camera</button>
+                    <button id="stopButton" class="btn btn-danger me-2" disabled>Stop Camera</button>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="settings-panel mb-3">
+                    <h4>Detection Settings</h4>
+                    <div class="mb-3">
+                        <label for="scaleFactor" class="form-label">Scale Factor: <span id="scaleFactorValue">1.10</span></label>
+                        <input type="range" class="form-range" id="scaleFactor" min="1.05" max="1.5" step="0.05" value="1.1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="minNeighbors" class="form-label">Min Neighbors: <span id="minNeighborsValue">5</span></label>
+                        <input type="range" class="form-range" id="minNeighbors" min="1" max="10" step="1" value="5">
+                    </div>
+                </div>
+                
+                <div class="results-panel">
+                    <h4>Detection Results</h4>
+                    <div class="results-item">
+                        <strong>Expression:</strong> <span id="expressionResult">Unknown</span>
+                    </div>
+                    <div class="results-item">
+                        <strong>Age:</strong> <span id="ageResult">Unknown</span>
+                    </div>
+                    <div class="results-item">
+                        <strong>Faces Detected:</strong> <span id="facesResult">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This is a web-based version of the Face Detection application. It uses face-api.js for face detection and analysis.</p>
+            <p>Note: For best results, use this application in a well-lit environment.</p>
+        </div>
+    </div>
+
+    <!-- Load face-api.js models -->
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
