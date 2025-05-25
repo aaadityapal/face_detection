@@ -43,11 +43,13 @@ stopButton.addEventListener('click', stopCamera);
 // Initialize face-api.js
 async function initFaceAPI() {
     try {
-        await faceapi.nets.tinyFaceDetector.loadFromUri('./models');
-        await faceapi.nets.faceLandmark68Net.loadFromUri('./models');
-        await faceapi.nets.faceExpressionNet.loadFromUri('./models');
-        await faceapi.nets.ageGenderNet.loadFromUri('./models');
-        console.log('Face API models loaded');
+        // Use CDN for models instead of local files
+        const modelUrl = 'https://justadudewhohacks.github.io/face-api.js/models';
+        await faceapi.nets.tinyFaceDetector.loadFromUri(modelUrl);
+        await faceapi.nets.faceLandmark68Net.loadFromUri(modelUrl);
+        await faceapi.nets.faceExpressionNet.loadFromUri(modelUrl);
+        await faceapi.nets.ageGenderNet.loadFromUri(modelUrl);
+        console.log('Face API models loaded from CDN');
     } catch (error) {
         console.error('Error loading Face API models:', error);
     }
