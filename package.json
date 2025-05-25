@@ -4,7 +4,6 @@
   "description": "Web-based face detection application",
   "main": "index.html",
   "scripts": {
-    "download-models": "node download-models.js",
     "start": "npx serve"
   },
   "keywords": [
