@@ -28,8 +28,10 @@ This is the recommended method as it allows for continuous deployment.
    Find and select your face detection repository from the list.
 
 6. **Configure build settings**
-   - Build command: `node download-models.js` (This will download the face-api.js models)
+   - Build command: (leave empty)
    - Publish directory: `.` (Use the root directory)
+   
+   Note: The application now loads models from a CDN, so no build command is needed.
 
 7. **Deploy the site**
    Click on the "Deploy site" button.

@@ -71,17 +71,14 @@ Browser-based version using face-api.js that can be deployed to Netlify.
 
 ### Web Version
 
-1. Download the face-api.js models:
-   ```
-   node download-models.js
-   ```
-
-2. Start the local server:
+1. Start the local server:
    ```
    npm start
    ```
 
-3. Open your browser and navigate to http://localhost:5000
+2. Open your browser and navigate to http://localhost:5000
+
+Note: The application now loads face-api.js models from a CDN, so no local model download is needed.
 
 ### Quick Start (Windows)
 
