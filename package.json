@@ -1,0 +1,21 @@
+{
+  "name": "face-detection-web",
+  "version": "1.0.0",
+  "description": "Web-based face detection application",
+  "main": "index.html",
+  "scripts": {
+    "download-models": "node download-models.js",
+    "start": "npx serve"
+  },
+  "keywords": [
+    "face-detection",
+    "opencv",
+    "face-api.js",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+} 
